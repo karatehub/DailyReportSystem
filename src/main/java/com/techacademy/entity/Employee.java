@@ -1,4 +1,4 @@
-package entity;
+package com.techacademy.entity;
 
 import java.sql.Date;
 import javax.persistence.Column;
