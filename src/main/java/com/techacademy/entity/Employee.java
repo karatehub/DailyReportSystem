@@ -1,6 +1,8 @@
 package com.techacademy.entity;
 
-import java.sql.Date;
+
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +30,8 @@ public class Employee {
     /** 削除フラグ **/
     private Integer delete_flag;
     /** 登録日時 **/
-    private Date created_at;
+    private LocalDateTime created_at;
     /** 更新日時 **/
-    private Date updated_at;
+    private LocalDateTime updated_at;
 
 }
