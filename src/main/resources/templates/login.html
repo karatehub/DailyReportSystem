@@ -4,19 +4,17 @@
     <meta charset="utf-8">
     <title>Tutorial of Develop</title>
 </head>
-<body>
     <h1>日報管理システム</h1>
+<body>
     <h2>ログイン</h2>
-    <p class="err" th:if="${param.error}">ユーザ名かパスワードが一致しませんでした。</p>
-    <form method="post" action="/login" th:action="@{/login}">
     <table>
         <tr>
             <td><label for="loginuser">社員番号：</label></td>
-            <td><input type="text" id="employeename" name="employeername" value="ktaro"></td>
+            <td><input type="text" id="employeename" name="employeername" value=""></td>
         </tr>
         <tr>
             <td><label for="password">パスワード：</label></td>
-            <td><input type="text" id="password" name="password" value="ktaro"></td>
+            <td><input type="text" id="password" name="password" value=""></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
