@@ -96,7 +96,7 @@ public class EmployeeController {
     }
 
     /** Employee削除処理 */
-    @PostMapping(path="list", params="deleteRun")
+    @PostMapping(path="update", params="deleteRun")
     public String deleteRun(@RequestParam(name="idck") Set<String> idck, Model model) {
         // Employeeを一括削除
         service.deleteUser(idck);
