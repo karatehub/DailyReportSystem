@@ -24,7 +24,7 @@ public class EmployeeService {
     }
 
     /** Employeeを１件検索して返す */
-    public Employee getEmployee(String id) {
+    public Employee getEmployee(Integer id) {
         return employeeRepository.findById(id).get();
     }
 
@@ -34,12 +34,6 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    /** Employeeの削除を行う　*/
-    @Transactional
-    public void deleteUser(Set<String> idck) {
-        for(String id : idck) {
-            employeeRepository.deleteById(id);
-        }
-    }
+
 
 }
