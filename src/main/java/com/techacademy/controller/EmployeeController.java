@@ -43,10 +43,10 @@ public class EmployeeController {
 
     /** Employee登録処理 */
     @PostMapping("/register")
-    public String postRegister(Employee employee) {
+    public String postRegister() {
 
         // Employee登録
-        service.saveEmployee(employee);
+        // service.saveEmployee(employee);
         // 一覧画面にリダイレクト
         return "redirect:/employee/list";
     }
