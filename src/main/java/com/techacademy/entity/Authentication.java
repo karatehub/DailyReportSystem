@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Authentication")
+@Table(name = "authentication")
 public class Authentication {
 
     public static enum Role{
@@ -39,6 +39,6 @@ public class Authentication {
     /** 従業員のテーブルのID **/
     @OneToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
-    private Employee employeeId;
+    private Employee employee;
 
 }
