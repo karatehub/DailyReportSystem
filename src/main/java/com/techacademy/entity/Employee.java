@@ -3,6 +3,7 @@ package com.techacademy.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PreRemove;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,13 +34,14 @@ public class Employee {
     private String name;
 
     /** 削除フラグ **/
-    private Integer delete_flag;
+    private Integer deleteFlag;
     /** 登録日時 **/
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
     /** 更新日時 **/
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy="employee")
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @Valid
     private Authentication authentication;
 
     @PreRemove

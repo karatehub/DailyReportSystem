@@ -43,14 +43,51 @@ public class EmployeeController {
 
     /** Employee登録処理 */
     @PostMapping("/register")
-    public String postRegister() {
+    public String postRegister(Employee employee) {
 
         // Employee登録
-        // service.saveEmployee(employee);
+         service.saveEmployee(employee);
         // 一覧画面にリダイレクト
         return "redirect:/employee/list";
     }
 
+    /** Employee詳細画面表示 */
+    @GetMapping("/detail/{code}")
+    public String getEmployee(@PathVariable Integer code, Model model) {
 
+        Employee employee = service.getEmployee(code);
+        // Modelに登録
+        model.addAttribute("employee", employee);
+        // country/detail.htmlに画面遷移
+        return "employee/detail";
+    }
 
+    /** Employee編集画面を表示 */
+    @GetMapping("/update/{id}")
+    public String employeeUser(@PathVariable Integer id, Model model) {
+        // Modelに登録
+        model.addAttribute("employee", service.getEmployee(id));
+        // Employee編集画面に遷移
+        return "employee/update";
+    }
+
+    /** Employee編集処理 */
+    @PostMapping("/update/{id}")
+    public String postEmployee(@PathVariable Integer id, Model model) {
+        // Employee登録
+        Employee employee = service.getEmployee(id);
+        // Modelに登録
+        model.addAttribute("employee", employee);
+        // 一覧画面にリダイレクト
+        return "redirect:/user/list";
+    }
+
+    /** Employee削除処理 */
+    @PostMapping(path="list", params="deleteRun")
+    public String deleteRun(@RequestParam(name="idck") Set<Integer> idck, Model model) {
+        // Employeeを一括削除
+        service.deleteEmployee(idck);
+        // 一覧画面にリダイレクト
+        return "redirect:/user/list";
+    }
 }
