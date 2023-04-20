@@ -9,8 +9,8 @@
     <h1>の従業員情報　編集ページ</h1>
 
     <form method="post" th:action="@{/employee/update/{id}/(id=${employee.id})}" th:object="${employee}">
-        <label for="id">社員番号</label>
-        <input type="hidden" id="id" name="id" th:value="*{id}" th:text="*{id}">
+        <label for="code">社員番号</label>
+        <input type="hidden" th:field="*{authentication.code}" th:text="*{authentication.code}">
 
         <br>
         <label for="name">氏名</label>
@@ -30,7 +30,7 @@
         <br>
         <br>
         <input type="submit" value="投稿">
-        <a th:href="deleteRun">この従業員情報を削除する</a>
+        <a th:href="@{/employee/delete/{id}(id=${employee.id})}">この従業員情報を削除する</a>
         <a th:href="@{/employee/list}">一覧に戻る</a>
     </form>
 </body>

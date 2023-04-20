@@ -49,10 +49,9 @@ public class EmployeeService {
 
     /** Employeeの削除を行なう */
     @Transactional
-    public void deleteEmployee(Set<Integer> idck) {
-        for(Integer id : idck) {
-            employeeRepository.deleteById(id);
-        }
+    public void deleteEmployee(Integer id) {
+        employeeRepository.deleteById(id);
+
     }
 
 }

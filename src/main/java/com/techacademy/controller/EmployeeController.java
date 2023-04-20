@@ -72,7 +72,7 @@ public class EmployeeController {
     }
 
     /** Employee編集処理 */
-    @PostMapping("/update/{id}")
+    @PostMapping("/update/{code}")
     public String postEmployee(Employee employee) {
         // Employee登録
         service.saveEmployee(employee);
@@ -82,11 +82,11 @@ public class EmployeeController {
     }
 
     /** Employee削除処理 */
-    @PostMapping(path="list", params="deleteRun")
-    public String deleteRun(@RequestParam(name="idck") Set<Integer> idck, Model model) {
-        // Employeeを一括削除
-        service.deleteEmployee(idck);
+    @PostMapping("/delete/{id}")
+    public String deleteRun(@PathVariable Integer id, Model model) {
+        // Employeeを削除
+        service.deleteEmployee(id);
         // 一覧画面にリダイレクト
-        return "redirect:/user/list";
+        return "redirect:/employee/list";
     }
 }
