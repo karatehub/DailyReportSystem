@@ -73,13 +73,12 @@ public class EmployeeController {
 
     /** Employee編集処理 */
     @PostMapping("/update/{id}")
-    public String postEmployee(@PathVariable Integer id, Model model) {
+    public String postEmployee(Employee employee) {
         // Employee登録
-        Employee employee = service.getEmployee(id);
-        // Modelに登録
-        model.addAttribute("employee", employee);
+        service.saveEmployee(employee);
+
         // 一覧画面にリダイレクト
-        return "redirect:/user/list";
+        return "redirect:/employee/list";
     }
 
     /** Employee削除処理 */
