@@ -47,7 +47,7 @@ public class EmployeeService {
 
     /** Employeeの編集を行う　*/
     @Transactional
-    public Employee detailEmployee(Employee employee) {
+    public Employee updateEmployee(Employee employee) {
         Authentication authentication = employee.getAuthentication();
         employee.setDeleteFlag(0);
 

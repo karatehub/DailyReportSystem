@@ -75,7 +75,7 @@ public class EmployeeController {
     @PostMapping("/update/{id}")
     public String postEmployee(Employee employee) {
         // Employee編集
-        service.detailEmployee(employee);
+        service.updateEmployee(employee);
 
         // 一覧画面にリダイレクト
         return "redirect:/employee/list";
