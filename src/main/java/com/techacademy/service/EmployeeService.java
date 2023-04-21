@@ -39,6 +39,18 @@ public class EmployeeService {
         Authentication authentication = employee.getAuthentication();
         employee.setDeleteFlag(0);
         employee.setCreatedAt(LocalDateTime.now());
+
+        authentication.setEmployee(employee);
+        //authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
+        return employeeRepository.save(employee);
+    }
+
+    /** Employeeの編集を行う　*/
+    @Transactional
+    public Employee detailEmployee(Employee employee) {
+        Authentication authentication = employee.getAuthentication();
+        employee.setDeleteFlag(0);
+
         employee.setUpdatedAt(LocalDateTime.now());
         authentication.setEmployee(employee);
         //authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
@@ -46,14 +58,15 @@ public class EmployeeService {
     }
 
 
-
-    /** Employeeの削除を行なう */
+    /** Employeeの削除を行う */
     @Transactional
     public Employee deleteEmployee(Employee employee) {
-
+        Authentication authentication = employee.getAuthentication();
         employee.setDeleteFlag(1);
-
-
+        employee.setCreatedAt(LocalDateTime.now());
+        employee.setUpdatedAt(LocalDateTime.now());
+        authentication.setEmployee(employee);
+        //authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
         return employeeRepository.save(employee);
     }
 
