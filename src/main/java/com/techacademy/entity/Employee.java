@@ -14,6 +14,7 @@ import javax.persistence.PreRemove;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
+import org.hibernate.annotations.Where;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.Data;
@@ -21,6 +22,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "employee")
+@Where(clause = "delete_flag = 0")
 public class Employee {
 
     /** 主キー。自動生成 */

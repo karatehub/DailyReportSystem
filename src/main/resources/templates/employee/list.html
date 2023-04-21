@@ -19,14 +19,15 @@
 
            </tr>
             <tr th:each="data : ${employeelist}">
-                <td th:text="${data.id}"></td>
+                <td th:text="${data.authentication.code}"></td>
                 <td th:text="${data.name}"></td>
 
                 <td><a th:href="@{/employee/detail/{aid}(aid=${data.id})}">詳細を見る</a></td>
 
             </tr>
-
+            <tr><td th:text="'全'   + '件'"></td></tr>
         </table>
+
         <a th:href="@{/employee/register}">新規従業員の登録</a>
     </form>
 </body>

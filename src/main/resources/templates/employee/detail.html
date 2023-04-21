@@ -9,7 +9,7 @@
     <h1>の従業員情報　詳細ページ</h1>
     <form method="post" action="/employee/detail/{id}/(id=${employee.id})">
         <table th:object="${employee}">
-            <tr><th>社員番号</th><td th:text="*{id}"></td></tr>
+            <tr><th>社員番号</th><td th:text="*{authentication.code}"></td></tr>
             <tr><th>氏名</th><td th:text="*{name}"></td></tr>
             <tr><th>権限</th><td th:text="*{authentication.role}"></td></tr>
             <tr><th>登録日時</th><td th:text="*{createdAt}"></td></tr>

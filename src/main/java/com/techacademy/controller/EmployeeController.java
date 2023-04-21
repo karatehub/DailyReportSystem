@@ -82,10 +82,10 @@ public class EmployeeController {
     }
 
     /** Employee削除処理 */
-    @PostMapping("/delete/{id}")
-    public String deleteRun(@PathVariable Integer id) {
+    @GetMapping("/delete/{id}")
+    public String deleteRun(Employee employee) {
         // Employeeを削除
-        service.deleteEmployee(id);
+        service.deleteEmployee(employee);
 
         // 一覧画面にリダイレクト
         return "redirect:/employee/list";
