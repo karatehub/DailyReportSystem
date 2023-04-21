@@ -52,10 +52,10 @@ public class EmployeeController {
     }
 
     /** Employee詳細画面表示 */
-    @GetMapping("/detail/{code}")
-    public String getEmployee(@PathVariable Integer code, Model model) {
+    @GetMapping("/detail/{id}")
+    public String getEmployee(@PathVariable Integer id, Model model) {
 
-        Employee employee = service.getEmployee(code);
+        Employee employee = service.getEmployee(id);
         // Modelに登録
         model.addAttribute("employee", employee);
         // country/detail.htmlに画面遷移
