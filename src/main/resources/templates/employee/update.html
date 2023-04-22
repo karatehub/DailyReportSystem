@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>の従業員情報　編集ページ</h1>
-
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="ログアウト">
+    </form><br>
     <form method="post" th:action="@{/employee/update/{id}(id=${employee.id})}" th:object="${employee}">
         <label for="code">社員番号</label>
         <input type="hidden" th:field="*{authentication.code}" th:text="*{authentication.code}">

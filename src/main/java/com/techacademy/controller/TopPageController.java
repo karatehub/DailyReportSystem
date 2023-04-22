@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-
-public class LoginController {
+public class TopPageController {
     /** ログイン画面を表示 */
-    @GetMapping("/login")
-    public String getLogin() {
-        // login.htmlに画面遷移
-        return "login";
+    @GetMapping("/")
+    public String getToppage() {
+        // toppage.htmlに画面遷移
+        return "toppage";
     }
 }
