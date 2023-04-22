@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +14,11 @@ import com.techacademy.entity.Employee;
 import com.techacademy.repository.EmployeeRepository;
 
 @Service
+
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
-    //@Autowired
-    //private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public EmployeeService(EmployeeRepository repository) {
         this.employeeRepository = repository;
@@ -41,7 +43,7 @@ public class EmployeeService {
         employee.setCreatedAt(LocalDateTime.now());
 
         authentication.setEmployee(employee);
-        //authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
+        authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
         return employeeRepository.save(employee);
     }
 
@@ -55,7 +57,7 @@ public class EmployeeService {
         authentication.setPassword(employee.getAuthentication().getPassword());
         authentication.setRole(employee.getAuthentication().getRole());
 
-        //authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
+        authentication.setPassword(passwordEncoder.encode(authentication.getPassword()));
         return employeeRepository.save(updateemployee);
     }
 

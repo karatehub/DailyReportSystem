@@ -14,6 +14,7 @@ public class UserDetail implements UserDetails {
     private final Employee employee;
     private final Collection<? extends GrantedAuthority> authorities;
 
+
     public UserDetail(Employee employee) {
         this.employee = employee;
         this.authorities = new ArrayList<GrantedAuthority>();
