@@ -25,7 +25,7 @@
                 <td><a th:href="@{/employee/detail/{aid}(aid=${data.id})}">詳細を見る</a></td>
 
             </tr>
-            <tr><td th:text="'全'   + '件'"></td></tr>
+            <tr><td th:text="'全' + ${employeelist.size()} + '件'"></td></tr>
         </table>
 
         <a th:href="@{/employee/register}">新規従業員の登録</a>

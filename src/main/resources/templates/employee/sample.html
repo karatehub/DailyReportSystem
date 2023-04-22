@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Tutorial of Thymeleaf</title>
+    <title>Count "リンゴ"</title>
+    <script>
+        function countStringOccurrences() {
+            var text = document.getElementById("text").innerText;
+            var count = (text.match(/リンゴ/g) || []).length;
+            document.getElementById("result").innerText = "文字列「リンゴ」の出現回数：" + count;
+        }
+    </script>
 </head>
 <body>
-    <h1>Thymeleaf Page</h1>
+    <div id="text">
+        <p>りんごは、バラ科リンゴ属に属する果樹である。</p>
+        <p>リンゴは、栄養豊富で、風邪予防にも効果があるとされている。</p>
+        <p>リンゴには、ビタミンCや食物繊維が含まれている。</p>
+    </div>
+    <button onclick="countStringOccurrences()">カウント</button>
+    <p id="result"></p>
 </body>
 </html>
