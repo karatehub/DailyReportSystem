@@ -58,7 +58,7 @@ public class EmployeeController {
         Employee employee = service.getEmployee(id);
         // Modelに登録
         model.addAttribute("employee", employee);
-        // country/detail.htmlに画面遷移
+        // employee/detail.htmlに画面遷移
         return "employee/detail";
     }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>日報管理システム</title>
+    <link rel="stylesheet" th:href="@{/css/employee/detail.css}">
+</head>
+<body>
+    <h1>日報　詳細ページ</h1>
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="ログアウト">
+    </form><br>
+    <form method="post" action="/report/detail/{id}(id=${report.id})">
+        <table th:object="${report2}">
+            <tr><th>氏名</th><td th:text="*{employee.name}"></td></tr>
+            <tr><th>日付</th><td th:text="*{reportDate}"></td></tr>
+            <tr><th>タイトル</th><td th:text="*{title}"></td></tr>
+            <tr><th>内容</th><td><pre th:text="*{content}"></pre></td></tr>
+            <tr><th>登録日時</th><td th:text="*{createdAt}"></td></tr>
+            <tr><th>更新日時</th><td th:text="*{updatedAt}"></td></tr>
+
+        </table>
+
+        <a th:if="${report.employee.name} eq ${report2.employee.name}" th:href="@{/report/update/{id}(id=${report.id})}">この従業員情報を編集する</a>
+
+        <a th:href="@{/report/list}">一覧に戻る</a>
+
+    </form>
+</body>
+</html>
